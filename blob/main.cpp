@@ -30,6 +30,7 @@ int main(int argc, const char * argv[]) {
             {0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0}};
     
+    //Find Top Left corner
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             if (blob[i][j]) {
@@ -43,6 +44,23 @@ int main(int argc, const char * argv[]) {
 top_left_found:
     cout << "Top = " << top << endl;
     cout << "Left = " << left << endl;
+    
+    //Find Bottom Right corner
+    
+    for (int i = N-1; i >= 0; i--) {
+        for (int j = N-1; j >= 0; j--) {
+            if (blob[i][j]) {
+                bottom = i;
+                right = j;
+                goto bottom_right_found;
+            }
+        }
+    }
+
+bottom_right_found:
+    cout << "Bottom = " << bottom << endl;
+    cout << "Right = " << right << endl;
+
     
     return 0;
 }
